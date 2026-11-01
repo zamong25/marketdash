@@ -1,13 +1,10 @@
 # marketdash — 5분 바이너리 시장 전략 운용 플랫폼
 
-> 온라인 예측시장의 **5분 단위 Up/Down 바이너리 시장**을 대상으로, 실시간 데이터 수집 → 전략 신호 → 모의/실전 주문 → 정산·회수까지를 하나의 파이프라인으로 돌리고, React 대시보드로 관제하는 프로그램입니다.
-> 설계(계층 아키텍처·ADR·수용 테스트)와 구현 전 과정을 **AI 코딩 에이전트(Claude Code)** 와 함께 진행했습니다.
->
-> 이 저장소는 **구조 스냅샷**입니다. 모듈·클래스·함수 시그니처와 한 줄 설명, 설계 문서, 화면 캡처만 담았고 구현 본문·설정·데이터는 비웠습니다. 실행되지 않습니다.
+온라인 예측시장의 **5분 단위 Up/Down 바이너리 시장**을 대상으로, 실시간 데이터 수집 → 전략 신호 → 모의/실전 주문 → 정산·회수까지를 하나의 파이프라인으로 돌리고, React 대시보드로 관제하는 프로그램입니다.
 
 ![시스템 지도](docs/images/dashboard_system_map.png)
 
-*대시보드 첫 화면 "시스템 지도" — 자금·판단이 어느 단계에 있는지, 기계·규칙·기록을 한 화면에 모았습니다. (화면의 금액·지갑은 데모 값입니다.)*
+*대시보드 첫 화면 "시스템 지도" — 자금·판단이 어느 단계에 있는지, 기계·규칙·기록을 한 화면에 모았습니다.*
 
 ---
 
@@ -98,27 +95,21 @@ class P1ConfidentDirectionStrategy: ...
 
 ![성과](docs/images/dashboard_monitor.png)
 
-*모든 화면의 금액·지갑은 데모 값으로 치환했습니다.*
-
 ## 4. 저장소 구조
 
 ```
 src/
-  core/          Protocol · 도메인 타입 · enum            (전문 수록)
-  adapters/clob/ 거래소 SDK v1/v2 어댑터 + factory        (시그니처)
-  strategies/    전략 플러그인 + registry                 (registry 전문, 전략은 시그니처)
-  execution/     주문 관리자 · 안전 가드 · 엔진 · 정산     (시그니처)
-  runner/        live_runner · twin_runner                (시그니처)
-  validation/    리플레이 · 시뮬레이터 · 괴리 측정         (시그니처)
-  api/           FastAPI 대시보드 API                     (시그니처)
-  infra/         Config · Telegram · heartbeat            (시그니처)
-frontend/dashboard/   React 19 + Vite 대시보드 (진입점·네비게이션·API 타입만)
-tests/acceptance/     수용 테스트 (시그니처 + 한 줄 설명)
-tests/test_architecture/  계층 경계 테스트 (시그니처 + 한 줄 설명)
-docs/adr/             아키텍처 결정 기록 15건 (전문)
+  core/          Protocol · 도메인 타입 · enum
+  adapters/clob/ 거래소 SDK v1/v2 어댑터 + factory
+  strategies/    전략 플러그인 + registry
+  execution/     주문 관리자 · 안전 가드 · 엔진 · 정산
+  runner/        live_runner · twin_runner
+  validation/    리플레이 · 시뮬레이터 · 괴리 측정
+  api/           FastAPI 대시보드 API
+  infra/         Config · Telegram · heartbeat
+frontend/dashboard/   React 19 + Vite 대시보드
+tests/acceptance/     수용 테스트
+tests/test_architecture/  계층 경계 테스트
+docs/adr/             아키텍처 결정 기록 15건
 docs/images/          화면 캡처
 ```
-
-## 5. 공개 범위
-
-운영 저장소의 **구조만 남긴 공개용 스냅샷**입니다. 구현 본문, 전략 파라미터, 설정, 수집 데이터, 거래 기록, 연구 산출물은 모두 제외했고, 거래소·데이터 공급자 이름은 일반 명사로 바꿨습니다. 수익을 보장하는 소프트웨어가 아닙니다.

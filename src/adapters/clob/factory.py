@@ -5,7 +5,7 @@ def _load_repo_env() -> None:
     ...
 
 def _edge_execution_requested(version: object | None) -> bool:
-    """Should orders leave through the Dublin gateway rather than this process?"""
+    """Should orders leave through the the remote edge gateway rather than this process?"""
     ...
 
 def _build_edge_client() -> CLOBClient:

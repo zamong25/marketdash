@@ -1,4 +1,4 @@
-"""The fleet's Dublin hand: sign, post, cancel — and nothing else."""
+"""The fleet's the remote edge hand: sign, post, cancel — and nothing else."""
 
 def http_status_in(error: str | None) -> int | None:
     """The HTTP status carried inside a stringified SDK exception, if any."""

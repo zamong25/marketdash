@@ -1,0 +1,19 @@
+"""Boundary test: quick-trade renderer modules."""
+
+def _renderer_stems() -> set[str]:
+    ...
+
+def _import_targets(text: str) -> list[str]:
+    ...
+
+def test_renderers_directory_exists() -> None:
+    ...
+
+def test_each_renderer_panel_exports_a_panel_component() -> None:
+    ...
+
+def test_renderer_does_not_import_sibling_renderer() -> None:
+    ...
+
+def test_registry_lists_every_concrete_renderer() -> None:
+    ...

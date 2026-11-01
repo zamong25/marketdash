@@ -1,0 +1,13 @@
+
+def _cache_key(path: str | Path) -> tuple[str, int, int]:
+    ...
+
+def load_calibration_payload(path: str | Path) -> dict[str, Any]:
+    """Load a calibration JSON object with mtime-aware in-process caching."""
+    ...
+
+def clear_calibration_payload_cache() -> None:
+    ...
+
+def calibration_cache_disk_reads() -> dict[str, int]:
+    ...

@@ -1,0 +1,6 @@
+
+def setup_logger(name: str, log_dir: str | Path, level: str='INFO') -> logging.Logger:
+    ...
+
+def append_jsonl(path: str | Path, record: dict[str, Any]) -> None:
+    ...

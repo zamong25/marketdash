@@ -1,0 +1,6 @@
+
+class ExecutionMode(Enum):
+    ...
+
+class SignalDirection(Enum):
+    ...

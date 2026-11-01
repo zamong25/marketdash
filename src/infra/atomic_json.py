@@ -1,0 +1,6 @@
+
+def atomic_write(path: str | Path, data: Any, *, ensure_ascii: bool=True, indent: int | None=None, sort_keys: bool=False) -> None:
+    ...
+
+def safe_read(path: str | Path, default: Any=None) -> Any:
+    ...

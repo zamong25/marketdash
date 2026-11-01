@@ -1,0 +1,53 @@
+"""Curated warehouse data dictionary with cached, read-only live statistics."""
+
+def join_data_dictionary(root: Path, dataset_items: Sequence[dict[str, Any]], *, registry_path: Path | None=None) -> list[dict[str, Any]]:
+    """Add a curated dictionary to measured dataset rows without changing them."""
+    ...
+
+def _load_registry(path: Path) -> tuple[dict[str, Any], ...]:
+    ...
+
+def _valid_table(value: Any) -> bool:
+    ...
+
+class _DataDictionaryStatsCache:
+    """Process-local cache so large line counts and file families stay cheap."""
+
+    def __init__(self, *, ttl_s: float=DATA_DICTIONARY_CACHE_TTL_S, clock: Callable[[], float]=time.monotonic) -> None:
+        ...
+
+    def get(self, root: Path, registry_path: Path, registry: Sequence[dict[str, Any]], paths_by_store: dict[str, tuple[str, ...]]) -> dict[str, dict[str, Any]]:
+        ...
+
+    def _fill(self, key: tuple[Any, ...], root: Path, registry: Sequence[dict[str, Any]], paths_by_store: dict[str, tuple[str, ...]]) -> dict[str, dict[str, Any]]:
+        ...
+
+def _measure_registry(root: Path, registry: Sequence[dict[str, Any]], paths_by_store: dict[str, tuple[str, ...]]) -> dict[str, dict[str, Any]]:
+    ...
+
+def _measure_table(root: Path, dataset_paths: Sequence[str], name: str) -> dict[str, Any]:
+    ...
+
+def _sqlite_table_stats(root: Path, dataset_paths: Sequence[str], table_name: str) -> dict[str, Any] | None:
+    ...
+
+def _sqlite_modified_at(database: Path) -> float:
+    ...
+
+def _matching_files(root: Path, dataset_paths: Sequence[str], name: str) -> list[Path]:
+    ...
+
+def _file_row_count(path: Path, *, family_size: int) -> tuple[int | None, bool]:
+    ...
+
+def _jsonl_row_count(path: Path) -> tuple[int, bool]:
+    ...
+
+def _dedupe_paths(paths: Sequence[Path]) -> list[Path]:
+    ...
+
+def _timestamp(value: float) -> str | None:
+    ...
+
+def _empty_stats(status: str) -> dict[str, Any]:
+    ...

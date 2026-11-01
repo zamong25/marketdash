@@ -1,0 +1,16 @@
+"""Stable per-context randomization helpers for realistic-fill effects."""
+
+def _normalize_key_part(value: Any) -> Any:
+    ...
+
+def stable_context_seed(*, base_seed: int, effect_name: str, context: 'FillContext', draw_label: str='default', extra_key: Any=None) -> int:
+    ...
+
+def rng_for_context(*, base_seed: int, effect_name: str, context: 'FillContext', draw_label: str='default', extra_key: Any=None) -> random.Random:
+    ...
+
+def choice_for_context(values: Iterable[_T], *, base_seed: int, effect_name: str, context: 'FillContext', draw_label: str='default', extra_key: Any=None) -> _T:
+    ...
+
+def random_for_context(*, base_seed: int, effect_name: str, context: 'FillContext', draw_label: str='default', extra_key: Any=None) -> float:
+    ...
